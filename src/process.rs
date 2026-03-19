@@ -10,7 +10,7 @@ pub struct ProccessInfo {
     run_time: String,
     id: String,
     user_id: String,
-    virtual_memory: String
+    virtual_memory: String,
 }
 
 impl ProccessInfo {
@@ -40,9 +40,9 @@ impl ToRuntime for u64 {
     fn to_runtime(&self) -> String {
         let time = *self as f64;
         match time {
-            0.0..60.0    => format!("{:.2}S", time),
+            0.0..60.0 => format!("{:.2}S", time),
             60.0..3600.0 => format!("{:.2}M", time / 60.0),
-            _            => format!("{:.2}H", time / 3600.0),
+            _ => format!("{:.2}H", time / 3600.0),
         }
     }
 }

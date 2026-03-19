@@ -14,7 +14,7 @@ pub mod system;
 #[tokio::main]
 async fn main() -> Result<(), std::io::Error> {
     let mut system = System::new_all();
-    
+
     fs::create_dir("./data")?;
     let mut file = fs::File::create("./data/foo.json")?;
 
@@ -37,19 +37,17 @@ async fn main() -> Result<(), std::io::Error> {
 }
 
 async fn post(info: String, endpoint: &String) {
-    let request = reqwest::Client::new().post(endpoint)
+    let request = reqwest::Client::new()
+        .post(endpoint)
         .body(info)
         .send()
         .await;
 
     match request {
         Err(why) => println!("Error {why}"),
-        Ok(response) => {
-            match response.status() {
-                StatusCode::OK => println!("Sent Data"),
-                _ => println!("Unsucessful")
-            }
-        }
+        Ok(response) => match response.status() {
+            StatusCode::OK => println!("Sent Data"),
+            _ => println!("Unsucessful"),
+        },
     }
 }
-

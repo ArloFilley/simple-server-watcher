@@ -2,8 +2,8 @@ use serde::Serialize;
 use sysinfo::System;
 
 use crate::{
-    disk::{DiskInfo, disk_info, ToDiskUnits}, 
-    process::{ProccessInfo, ToRuntime}, 
+    disk::{disk_info, DiskInfo, ToDiskUnits},
+    process::{ProccessInfo, ToRuntime},
 };
 
 #[derive(Serialize)]
