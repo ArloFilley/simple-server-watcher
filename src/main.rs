@@ -16,7 +16,7 @@ async fn main() -> Result<(), std::io::Error> {
     let mut system = System::new_all();
 
     fs::create_dir("./data")?;
-    let mut file = fs::File::create("./data/foo.json")?;
+    let mut file = fs::File::create("./data/data.json")?;
 
     // ! Change key before compiling
     let key = String::from("Change this key before compiling!!!");
